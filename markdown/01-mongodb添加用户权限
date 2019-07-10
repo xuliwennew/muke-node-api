@@ -1,0 +1,19 @@
+centos7上mongodb 新建数据库并设置用户名密码
+先创建admin账号，然后用admin账号创建其他用户
+
+use admin
+db.createUser(
+  {
+    user: "admin",
+    pwd: "xuliwen0728",
+    roles: [
+       { role: "userAdminAnyDatabase", db: "admin" }
+    ]
+  }
+)
+
+
+用管理员账号登录数据库
+use 要创建的新数据库名称
+use ccc
+db.createUser({user:"cc",pwd:"cc777",roles:[{role:"dbOwner",db:"ccc"}]})
